@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <header class="jumbotron intro">
+    <div class="container">
+      <h1>World Wonders in Civilization V</h1>
+      <h5 id="quote-index">
+        " Numberless are the world's wonders, but none more wonderful than man."
+        - Sophocles
+      </h5>
+      <p>
+        <a class="btn btn-dark " href="campgrounds/new">Add Wonders</a>
+      </p>
+    </div>
+  </header>
+
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% campgrounds.forEach(function(campground){ %>
+    <div class="col-md-4 col-sm-6 pic-container">
+      <div class="img-thumbnail">
+        <img src="<%=campground.image %>" />
+        <div class="caption">
+          <h4><%= campground.name %></h4>
+        </div>
+        <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>"
+          >More Info</a
+        >
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+<% include ../partials/footer %>
